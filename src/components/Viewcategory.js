@@ -35,6 +35,7 @@ export default class Viewcategory extends React.Component{
  deleteform(val)
 {
    console.log(val);
+  
    const customHeaders={
       'content-type': 'application/json',
       headers:{
@@ -51,6 +52,7 @@ export default class Viewcategory extends React.Component{
          alert('No delete category');
       }
    })
+
 }
 	render(){
       
@@ -100,9 +102,9 @@ export default class Viewcategory extends React.Component{
                                  <tr>
                                     <td>{i+1}</td>
                                     <td>{object.category}</td>
-                                    <td><Link to="#" onClick={i=>this.deleteform(object.id)}><strong>Active</strong></Link> </td>
+                                    <td><Link to="#"><strong>Active</strong></Link> </td>
                                     <td><Link to={`/edit-category/${object.id}`} class="red">Edit</Link></td>
-                                    <td><Link to="/add-category"></Link></td>
+                                    <td><Link to="#" onClick={i =>window.confirm("Are you sure you wish to delete this item?") && this.deleteform(object.id)}><strong>Delete</strong></Link> </td>
                                  </tr>
                                   )
                                 })
